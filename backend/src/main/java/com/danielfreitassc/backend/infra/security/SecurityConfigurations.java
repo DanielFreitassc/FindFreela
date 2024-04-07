@@ -29,18 +29,13 @@ public class SecurityConfigurations {
                 .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                 .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()//.hasRole("ADMIN")
 
-                .requestMatchers(HttpMethod.POST, "/postagens").hasRole("ADMIN")
-                .requestMatchers(HttpMethod.GET, "/postagens").permitAll()
-                .requestMatchers(HttpMethod.GET, "/postagens/{id}").permitAll()
+                .requestMatchers(HttpMethod.POST, "/post").permitAll()//.hasRole("ADMIN")
+                .requestMatchers(HttpMethod.GET, "/post").permitAll()
+                .requestMatchers(HttpMethod.GET, "/h2-console/*").permitAll()
+                .requestMatchers(HttpMethod.POST, "/h2-console/**/**").permitAll()
                 .requestMatchers(HttpMethod.PUT, "/postagens/{id}").permitAll()
                 .requestMatchers(HttpMethod.DELETE, "/postagens/{id}").permitAll()
                 
-                
-
-
-                .requestMatchers(HttpMethod.POST,"/fotos").permitAll()
-                .requestMatchers(HttpMethod.GET,"/fotos/{filename}").permitAll()
-                .requestMatchers(HttpMethod.DELETE,"/fotos/{filename}").permitAll()
                 
                 .anyRequest().authenticated()
             )
