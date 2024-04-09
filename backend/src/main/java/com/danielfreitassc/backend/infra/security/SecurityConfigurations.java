@@ -35,8 +35,8 @@ public class SecurityConfigurations {
                 .requestMatchers(HttpMethod.POST, "/h2-console/**/**").permitAll()
                 .requestMatchers(HttpMethod.PUT, "/postagens/{id}").permitAll()
                 .requestMatchers(HttpMethod.DELETE, "/postagens/{id}").permitAll()
-                
-                
+
+                .requestMatchers(HttpMethod.GET,"/valitaion").hasRole("ADMIN")
                 .anyRequest().authenticated()
             )
             .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)

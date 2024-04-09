@@ -35,9 +35,6 @@ public class PostEntity extends RepresentationModel<PostEntity> implements Seria
     private String titulo;
     private String descricao;
     private LocalDate data;
-    
-    @OneToOne
-    @JoinColumn(name = "id")
-    private UserEntity usuario;
+    private String nome;
     
 }
