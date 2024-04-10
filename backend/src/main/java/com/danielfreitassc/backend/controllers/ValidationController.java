@@ -21,7 +21,8 @@ public class ValidationController {
     public ResponseEntity<String> validation(HttpServletRequest request) {
         String token = extractToken(request);
         String nome = tokenService.getNome(token);
-        return ResponseEntity.ok(nome);
+        // return ResponseEntity.ok(nome);
+        return ResponseEntity.ok().body("{\"nome\": \"" + nome + "\"}");
     }
 
     private String extractToken(HttpServletRequest request) {
