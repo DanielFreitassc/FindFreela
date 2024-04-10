@@ -49,9 +49,7 @@ public class AuthenticationController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Email ou senha incorreto");
         }
     }
-    
-
-   
+       
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody @Valid RegisterRecordDTO data ) {
         if(this.userRepository.findByLogin(data.login()) != null) return ResponseEntity.badRequest().build();
