@@ -31,7 +31,7 @@ export const ContainerSessao = styled.div`
 
 export const ErrorStyled = styled(ErrorMessage)`
     color: red;
-    font-size: 13px;
+    font-size: 10px;
 `
 
 export const LabelStyled = styled.span`
@@ -61,16 +61,12 @@ export const FormContainer = styled.div`
     justify-content: center;
     align-items: center;
     margin-top: -30px;
-
-    @media (max-width: 1366px){
-        margin-top: 20px;
-    }
 `
 
 export const FormTitle = styled.h1`
     font-size: 4em;
     color: ${theme.color.secondaryColor};
-    margin-bottom: 8px;
+    margin-bottom: 37px;
 `
 export const FormCaption = styled.h2`
     font-size: 2.25em;
@@ -117,4 +113,22 @@ export const ImageContent = styled.div`
     flex-direction: column;
     align-items: center;
     padding-bottom: 100px;
+`
+
+export const StyledSelected = styled.select`
+    height: 55px;
+    width: 100%;
+    font-weight: normal;
+    color: #7B7B7B;
+    margin: 0 auto;
+    font-size: 24px;
+    text-align: center;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #DED2D9;
+`
+
+export const StyledOption = styled.option`
+    width: 30px;
+    color: #7B7B7B;
 `

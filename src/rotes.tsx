@@ -5,6 +5,7 @@ import { AuthProvider } from "./context/Auth/AuthProvider"
 import Login from "./screen/Login"
 import { ThemeProvider } from "styled-components"
 import { theme } from "./styles/theme"
+import Register from "./screen/Register"
 
 const AppRoutes = () => {
   return (
@@ -13,7 +14,8 @@ const AppRoutes = () => {
             <BrowserRouter>
                 <Routes>
                     <Route path="/login" element={<Login />} />
-                    <Route 
+                    <Route path="/register" element={<Register />} />
+                    <Route
                         path="/"
                         element={
                             <>

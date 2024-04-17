@@ -5,6 +5,12 @@ import SubmitButton from '../../components/Buttons/SubmitButton'
 import { privateAPi } from '../../services/privateApi'
 import { Link } from 'react-router-dom'
 
+interface IDataProps{
+    data:{
+        token: string;
+    }
+}
+
 const SCHEMA = yup.object().shape({
     email: yup
             .string()
@@ -14,7 +20,6 @@ const SCHEMA = yup.object().shape({
             .string()
             .required('Campo necessário')
             .min(6, 'A senha deve ter pelo menos 6 caracteres')
-            .max(20, 'A senha não deve exceder 20 caracteres')
 })
 
 const Login = () => {
@@ -29,7 +34,7 @@ const Login = () => {
         <Styles.FormContainer>
             <Styles.HeaderContainer>
                 <Styles.FormTitle>Find Freela</Styles.FormTitle>
-                <Styles.FormCaption>Logue com sua conta</Styles.FormCaption>
+                <Styles.FormCaption>Entre com sua conta</Styles.FormCaption>
             </Styles.HeaderContainer>
             <Formik
                 initialValues={{email:'', password:''}}
@@ -40,10 +45,9 @@ const Login = () => {
                             login: values.email,
                             password: values.password
                         })
-                        .then((res) => {
+                        .then((res: IDataProps) => {
                             localStorage.setItem('authToken', res.data.token)
                         })
-                    
                 }}
             >
                 {() => (
@@ -51,12 +55,12 @@ const Login = () => {
                         <Styles.ContainerSessao>
                             <Styles.LabelStyled>Email:</Styles.LabelStyled>
                             <Styles.InputStyled type="email" name="email" id="email" placeholder="Ex: freela@email.com" />
-                            <Styles.ErrorStyled name='email' />
+                            <Styles.ErrorStyled name='email' component="div" />
                         </Styles.ContainerSessao>
                         <Styles.ContainerSessao>
-                            <Styles.LabelStyled>Passsword:</Styles.LabelStyled>
+                            <Styles.LabelStyled>Senha:</Styles.LabelStyled>
                             <Styles.InputStyled type="password" name="password" id="password" placeholder="Digite sua senha..." />
-                            <Styles.ErrorStyled name='password' />
+                            <Styles.ErrorStyled name='password' component="div" />
                         </Styles.ContainerSessao>
                         <SubmitButton margin={{top: 36}}>
                             Login
@@ -65,7 +69,7 @@ const Login = () => {
                 )}
             </Formik>
         <Styles.RegisterContainer>
-            <span>Não tem uma conta?</span><Link to={'/'}>Criar uma conta</Link>
+            <span>Não tem uma conta?</span><Link to={'/register'}>Criar uma conta</Link>
         </Styles.RegisterContainer>
         </Styles.FormContainer>
     </Styles.LoginStyled>
