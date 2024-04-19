@@ -10,7 +10,7 @@ import jakarta.validation.constraints.NotNull;
 public record PostRecordDTO(
     @NotBlank String titulo, 
     @NotBlank String descricao, 
-    @NotNull @JsonFormat(pattern = "dd/MM/yyyy") LocalDate data
+    @JsonFormat(pattern = "dd/MM/yyyy") LocalDate data
     ) {
     
 }
