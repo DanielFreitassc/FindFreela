@@ -7,6 +7,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.danielfreitassc.backend.controllers.PostController;
@@ -22,7 +23,9 @@ public class PostService {
     private PostRepository postRepository;
     
     public ResponseEntity<PostEntity> savePost(PostRecordDTO postRecordDTO) {
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
         PostEntity postEntity = new PostEntity();
+        postEntity.setNome(username);
         BeanUtils.copyProperties(postRecordDTO, postEntity);
         return ResponseEntity.status(HttpStatus.CREATED).body(postRepository.save(postEntity));
     } 

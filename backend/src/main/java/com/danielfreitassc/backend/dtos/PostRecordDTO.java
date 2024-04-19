@@ -2,6 +2,15 @@ package com.danielfreitassc.backend.dtos;
 
 import java.time.LocalDate;
 
-public record PostRecordDTO(String titulo, String descricao, LocalDate data, String nome) {
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+public record PostRecordDTO(
+    @NotBlank String titulo, 
+    @NotBlank String descricao, 
+    @NotNull @JsonFormat(pattern = "dd/MM/yyyy") LocalDate data
+    ) {
     
 }
