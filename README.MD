@@ -1,4 +1,4 @@
-# Site em desencolvimento cheque as branchs
+# Site em desenvolvimento cheque as branchs
 ## O site tem como objetico fazer um match entre o programador e o contratante
 # Stacks
 ## React e spring
