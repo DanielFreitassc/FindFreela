@@ -7,3 +7,16 @@
 ## Typescript e Java
 
 ![image](https://github.com/DanielFreitassc/lista_telefonica_react_and_spring/assets/129224303/1279fa48-ac26-4ff0-b2ae-5a869f29c696) ![image](https://github.com/DanielFreitassc/lista_telefonica_react_and_spring/assets/129224303/f51ca0b7-0798-4132-b784-22acfe8e6e5d)
+
+# Rotas
+## Login
+```json
+http://localhost:8080/auth/login
+```
+```json
+{
+"login":"test@test",
+"password":"senha1234"
+}
+
+```
